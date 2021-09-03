@@ -6,7 +6,11 @@ import numpy as np
 from ctypes import c_int, Structure, POINTER,\
                     RTLD_GLOBAL, CDLL, c_double, byref, c_char_p, c_bool
 
-lib = CDLL("./mhtda.so", RTLD_GLOBAL)
+import os
+file_path = os.path.realpath(__file__)
+mhtda_path = os.path.join(os.path.split(file_path)[0], "mhtda.so")
+
+lib = CDLL(mhtda_path, RTLD_GLOBAL)
 
 sparse = True
 
